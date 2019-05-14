@@ -1,0 +1,18 @@
+{% extends "all/layout.html" %}
+{% load static %}
+
+
+{% block content %}
+    <section class="bg-leaves">
+        <section class="row-content2">
+            <div class="container-fluid" style="max-width: 80%;">
+                <h1>{{post.title | safe}}</h1>
+                <br />
+
+                {{ post.text | safe }}
+
+                <a class="text-muted">Admin - {{post.created_at | safe}}</a>
+            </div>
+            </section>
+        </section>
+        {% endblock %}

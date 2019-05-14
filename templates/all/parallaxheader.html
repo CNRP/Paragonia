@@ -1,0 +1,24 @@
+{% load static %}
+<img src="{% static 'img/layer4.png'%}" id="layer1" class="mx-auto d-block " style="position: absolute; margin-bottom: 0; padding-bottom: 0; overflow: hidden; height: 1080px; max-width: 100%;" alt="...">
+
+<div id="parallax-container">
+    <div id="logo-div" style="text-align: center; z-index: -2; height: 1080px;">
+        <img src="{% static 'img/logo.png' %}" class="mx-auto d-block animated fadeIn" style="position:relative; display: inline-block; z-index: -1; height: auto;" alt="...">
+    </div>
+
+    <img src="{% static 'img/bg/1920/2.png' %}" style="z-index: -2;" id="layer2">
+    <img src="{% static 'img/bg/1920/3.png' %}" style="z-index: -3;" id="layer3">
+    <img src="{% static 'img/bg/1920/4.png' %}" style="z-index: -4;" id="layer4">
+</div>
+
+<script>
+
+		window.addEventListener('scroll', () => {
+		   let parent = document.getElementById('parallax-container');
+		   let children = parent.getElementsByTagName('img');
+		   for(let i = 0; i < children.length; i++) {
+			 children[i].style.transform = 'translateY(-' + (window.pageYOffset * i / children.length) + 'px)';
+		   }
+		}, false)
+
+</script>

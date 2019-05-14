@@ -1,0 +1,105 @@
+{% extends 'all/layout.html' %}
+{% load static %}
+
+{% block content %}
+    {% include 'all/latest.html' %}
+   
+
+        {% for section in homesections %}
+
+        {% if section.align == 'right' %}
+
+        <section class="home-section" style="background-image: url({% static section.thumbnail_url %});">
+            <div id="gradient">
+                <div id="leaves">
+
+                    {% if forloop.counter == 1 %}
+                    <div class="top-gradient">
+                    {% endif %}
+
+                        <div class="container-fluid home-row" data-aos="fade-up" style="max-width: 65%; text-align: right;">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div style="max-width: 100%;">
+                                        <br>
+                                        <h1 class="card-title">{{section.title}}</h1>
+                                        <p class="card-text">{{section.content}}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <img src="{% static section.thumbnail_url %}" class="float-right sectionImg" alt="...">
+                                </div>
+                            </div>
+                        </div>
+
+                    {% if forloop.counter == 1 %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+        {% else %}
+        <section class="home-section" style="background-image: url({% static section.thumbnail_url %});">
+            <div id="gradient">
+                <div id="leaves">
+                    <div class="container-fluid home-row" data-aos="fade-up" style="max-width: 65%; text-align: left;">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="{% static section.thumbnail_url %}" class="float-left sectionImg" alt="...">
+                            </div>
+                            <div class="col-md-9">
+                                <div style="max-width: 100%;">
+                                    <br>
+                                    <h1 class="card-title">{{section.title}}</h1>
+                                    <p class="card-text">{{section.content}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    >
+                </div>
+            </div>
+        </section>
+        <!--
+    <section class="row-content">
+        <div class="container-fluid row-{{section.title}}" style="max-width: 65%; text-align: left;" data-aos="flip-up">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="{% static section.thumbnail_url %}" class="float-left sectionImg" alt="...">
+                </div>
+                <div class="col-md-9">
+                    <div style="max-width: 100%;">
+                        <br>
+                        <h1 class="card-title">{{section.title}}</h1>
+                        <p class="card-text">{{section.content}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
+        {% endif %}
+
+        {% endfor %}
+        <div id="leaves">
+            <div class="bottom-gradient">
+                <section class="row-content rocks" data-aos="zoom-out">
+                    <div class="container-fluid" style="max-width: 80%; text-align: center; ">
+                        <div class="row">
+                            <p style="color: #b3ab87;">
+                                Paragonia will be
+                                <strong>FREE</strong> to play at launch. We aim to create a
+                                <strong>fair</strong> and free experience for all players, so all that will be required to play is a Minecraft account.
+                                <br>
+                                Currently, Paragonia is in
+                                <strong>Pre-Alpha</strong> and is not available to play. For more information and continued updates on our development, please consider following us on
+                                <a href="#">><strong>Twitter</strong></a> or join our community
+                                <a href="#"><strong>Discord</strong></a>!
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    {% endblock %}

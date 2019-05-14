@@ -1,0 +1,27 @@
+{% load static %}
+<script>
+    var btn = document.getElementById('copy');
+    var clipboard = new ClipboardJS(btn);
+</script>
+
+<section class='main-content'>
+            <div class='container-fluid ' style='max-width: 70%;' data-aos="fade-up">
+                <div class='row'>
+                    <div class='col-md-8'>
+                        <a id='recentArticle' href='/pages/article/{{latest.id}}'>
+                            <img src='{% static latest.thumbnail_url %}' class='mx-auto d-block home-mainfeatured-image' alt='...'>
+                            <br>
+                            <h1 class='text-center'>{{latest.title}}</h1>
+                            <p class='text-center'>{{latest.description}}</p>
+                        </a>
+                    </div>
+                    <div id='homeWidgets' class='col-md-4'>
+                        <iframe src='https://discordapp.com/widget?id=376896557926318080&theme=dark' width='100%' height='85%' allowtransparency='true' frameborder='0'></iframe>
+                        <div id='onlineBlock'>
+
+                            <a>Adventurers Online: <span data-playercounter-ip='mc.paragonia.net' style='color: green !important; text-shadow: 1px 1px 0px #083e14, 1px 1px 2px black;'>0</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>

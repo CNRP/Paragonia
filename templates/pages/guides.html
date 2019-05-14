@@ -1,0 +1,33 @@
+{% extends "all/layout.html" %}
+{% load static %}
+
+{% block content %}
+    <div id="info-modal" class="modal-dialog">
+       <div id="info">
+          <a href="#close" title="Close" class="close"><img src="{% static 'img/x-button.png' %}"></a>
+          <div id="insert"></div>
+       </div>
+    </div>
+
+    <section class="main-content">
+       <div class="container-fluid" style="max-width: 80%;">
+       <div class="guide-container">
+          <h1 style="text-align: center;">Guides</h1>
+          <br>
+          {% for guide in guides %}
+
+          <div class="col guide-col">
+             <a class="guide" id="click-me" href="#" name="{{guide.title}}">
+                <div class="guide-card" style="max-width: 100%;">
+                   <img class="card-img-top" style="max-width: 90px; margin-left: auto; margin-right: auto; margin-top: 7%;" src="{% static guide.thumbnail_url %}" alt="Card image cap">
+                   <div style="max-width: 100%; padding: 5%;">
+                      <h1 class="guide-title" style="text-align: center; text-transform: uppercase;">{{guide.title}}</h1>
+                   </div>
+                </div>
+             </a>
+          </div>
+
+          {% endfor %}
+       </div>
+    </section>
+{% endblock %}

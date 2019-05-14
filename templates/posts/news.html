@@ -1,0 +1,33 @@
+{% extends "all/layout.html" %}
+
+{% load static %}
+
+{% block content %} 
+{% include "all/latest.html" %}
+<section class="bg-leaves">  
+    <section style="background: rgb(8,5,14);
+background: linear-gradient(0deg, rgba(8,5,14,1) 0%, rgba(8,5,14,1) 4%, rgba(255,255,255,0) 14%);">
+        {% for post in news %}
+        <section class="row-content">
+            <div class="container-fluid" style="max-width: 70%;">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="{% static post.thumbnail_url %}" class="float-left" style="max-width: 100%; border: 1px solid #b3ab87;" alt="...">
+                    </div>
+                    <a id="newsArticle" href="/pages/article/{{post.id}}">
+                        <div class="col-md-9">
+                            <div style="max-width: 100%;">
+                                <h1 class="card-title">{{post.title}}</h1>
+                                <p class="card-text">{{post.description}}</p>
+                                <a class="text-muted">Admin - {{post.created_at}}</a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        {% endfor %}
+    </section>
+</section>
+
+{% endblock %}

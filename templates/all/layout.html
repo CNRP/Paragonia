@@ -1,0 +1,49 @@
+﻿{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Paragonia - {{title}}</title>
+    <!-- Include External CSS -->
+    <script src="{% static 'js/jquery.min' %}"></script>
+
+    <script src="{% static 'aos.js' %}"></script>
+    <link href="{% static 'aos.css' %}" rel="stylesheet">
+    <script src="{% static 'css/font-awesome.css' %}"></script>
+    <script src="{% static 'js/mc-player-counter.min.js' %}"></script>
+    <script src="{% static 'js/clipboard.js' %}"></script>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'css/nav.css' %}" rel="stylesheet">
+    <link href="{% static 'css/footer.css' %}" rel="stylesheet">
+    <link href="{% static 'css/modal.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+</head>
+
+    {% include 'all/navigation.html' %}
+
+<body>
+    <div class="item" data-aos="example-anim2">
+        <script>AOS.init();</script>
+        <div class="cylon_eye" style="width: 100%"></div>
+
+        {% if title == 'Homepage' %}
+        {% include 'all/parallaxheader.html' %}
+        {% else %}
+        <section class="top">
+            <img src="{% static 'img/logo.png' %}" class="mx-auto d-block animated fadeIn" style="padding-top: 5%; padding-bottom: 5%;" alt="...">
+        </section>
+        {% endif %}
+
+        <section class="main-content">
+            {% block content %}
+            {% endblock %}
+        </section>
+    </div>
+    {% include 'all/footer.html' %}
+</body>
+</html>
