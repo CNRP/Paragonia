@@ -5,11 +5,12 @@
     "\\paragonia",
     "\\static",
     "\\static\\css",
+    "\\static\\js",
     "\\templates",
     "\\templates\\all",
     "\\templates\\pages",
     "\\templates\\posts"
   ],
-  "SelectedNode": "\\paragonia\\settings.py",
+  "SelectedNode": "\\templates\\pages\\home.html",
   "PreviewInSolutionExplorer": false
 }

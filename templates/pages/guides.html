@@ -2,32 +2,61 @@
 {% load static %}
 
 {% block content %}
-    <div id="info-modal" class="modal-dialog">
-       <div id="info">
-          <a href="#close" title="Close" class="close"><img src="{% static 'img/x-button.png' %}"></a>
-          <div id="insert"></div>
-       </div>
-    </div>
+   
+    <script>
+        function openGuide(guideTitle) {
+
+           {% for guide in guides %}
+            string = "content-{{guide.title}}";
+            document.getElementById(string).style.display  = "none";
+            {% endfor %}
+
+        document.getElementById("info-modal").style.display = "block";
+        string = "content-" + guideTitle;
+        document.getElementById(string).style.display = "block";
+    }
+
+        /**
+    function closeInfo(guideTitle) {
+        document.getElementById("info-modal").style.display = "none";
+        string = "content-" + guideTitle;
+        document.getElementById(string).style.display  = "none";
+    }*/
+
+    </script>
 
     <section class="main-content">
        <div class="container-fluid" style="max-width: 80%;">
-       <div class="guide-container">
-          <h1 style="text-align: center;">Guides</h1>
-          <br>
-          {% for guide in guides %}
+           <div class="guide-container">
 
-          <div class="col guide-col">
-             <a class="guide" id="click-me" href="#" name="{{guide.title}}">
-                <div class="guide-card" style="max-width: 100%;">
-                   <img class="card-img-top" style="max-width: 90px; margin-left: auto; margin-right: auto; margin-top: 7%;" src="{% static guide.thumbnail_url %}" alt="Card image cap">
-                   <div style="max-width: 100%; padding: 5%;">
-                      <h1 class="guide-title" style="text-align: center; text-transform: uppercase;">{{guide.title}}</h1>
+               <div id="info-modal" style="display: none;">
+                   {% for guide in guides %}
+                   <div id="content-{{guide.title}}" style="display: none;">
+                       <h1>{{ guide.title | safe }}</h1>
+                       <p>{{ guide.content | safe }}</p>
+                       <!--<a onclick="closeInfo('{{guide.title}}')" href="#" id="close"> x <img src="{% static 'img/x-button.png' %}"></a>-->
                    </div>
-                </div>
-             </a>
-          </div>
+                   {% endfor %}
+                   <br /><br />
+               </div>
 
-          {% endfor %}
-       </div>
+               <h1 style="text-align: center;">Guides</h1>
+               <br>
+               {% for guide in guides %}
+
+               <div class="col guide-col">
+                   <a class="guide" id="click-me" onclick="openGuide('{{guide.title}}')" name="{{guide.title}}">
+                       <div class="guide-card" style="max-width: 100%;">
+                           <img class="card-img-top" style="max-width: 90px; margin-left: auto; margin-right: auto; margin-top: 7%;" src="{% static guide.thumbnail_url %}" alt="Card image cap">
+                           <div style="max-width: 100%; padding: 5%;">
+                               <h1 class="guide-title" style="text-align: center; text-transform: uppercase;">{{guide.title}}</h1>
+                           </div>
+                       </div>
+                   </a>
+               </div>
+
+               {% endfor %}
+           </div>
+           </div>
     </section>
 {% endblock %}
