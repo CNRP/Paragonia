@@ -3,7 +3,6 @@
 
 {% block content %}
     {% include 'all/latest.html' %}
-   
 
         {% for section in homesections %}
 
@@ -60,24 +59,7 @@
                 </div>
             </div>
         </section>
-        <!--
-    <section class="row-content">
-        <div class="container-fluid row-{{section.title}}" style="max-width: 65%; text-align: left;" data-aos="flip-up">
-            <div class="row">
-                <div class="col-md-3">
-                    <img src="{% static section.thumbnail_url %}" class="float-left sectionImg" alt="...">
-                </div>
-                <div class="col-md-9">
-                    <div style="max-width: 100%;">
-                        <br>
-                        <h1 class="card-title">{{section.title}}</h1>
-                        <p class="card-text">{{section.content}}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    -->
+        
         {% endif %}
 
         {% endfor %}
