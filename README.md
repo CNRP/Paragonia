@@ -4,6 +4,8 @@ Website created using the Django python framework.
 
 The theme of the website was in line with creating a dark mysterious atmopshere in which key areas of the paragonia website could highlight new content and updates for the game. 
 
+Demo [Here](http://connorp.pythonanywhere.com)
+
 ![preview1](https://i.imgur.com/yUR6NhS.png)
 
 Features Include:
